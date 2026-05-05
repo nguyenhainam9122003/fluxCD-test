@@ -6,13 +6,22 @@ Dự án này sử dụng **FluxCD** để tự động deploy ứng dụng từ
 
 ```
 .
-├── clusters/              # Cấu hình cho các cluster khác nhau
+├── clusters/                          # Cấu hình Flux cho cluster
 │   └── dev/
-│       └── flux-system/  # Flux system configuration
-├── apps/                  # Các ứng dụng để deploy
-│   ├── nginx-example/
+│       └── flux-system/
+│           ├── gotk-sync.yaml        # GitRepository + Main Kustomization
+│           ├── kustomization.yaml    # Workload Kustomization
+│           └── helmrepository.yaml   # Helm Chart repositories
+├── workload/                          # Các ứng dụng/services
+│   ├── nginx-example/                # Kustomize-based app
+│   │   ├── deployment.yaml
+│   │   ├── service.yaml
+│   │   └── kustomization.yaml
+│   ├── pdf-converter/                # Helm Release-based app
+│   │   ├── namespace.yaml
+│   │   ├── helmrelease.yaml
+│   │   └── kustomization.yaml
 │   └── kustomization.yaml
-├── infrastructure/        # Cấu hình hạ tầng (Helm repos, etc.)
 └── README.md
 ```
 
