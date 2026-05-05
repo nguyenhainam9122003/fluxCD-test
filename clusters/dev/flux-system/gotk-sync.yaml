@@ -12,13 +12,13 @@ spec:
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: workload
+  name: flux
   namespace: flux-system
 spec:
   interval: 5m
   sourceRef:
     kind: GitRepository
     name: fluxcd-test
-  path: ./workload
+  path: ./workload/flux
   prune: true
   wait: true
