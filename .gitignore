@@ -1,0 +1,9 @@
+# Flux resources
+.fleet/
+*.orig
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
